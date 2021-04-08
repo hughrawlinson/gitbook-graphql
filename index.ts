@@ -1,5 +1,5 @@
-const { ApolloServer, gql } = require("apollo-server");
-const GitBookApi = require("./gitbookapi");
+import { ApolloServer, gql, IResolvers } from "apollo-server";
+import GitBookApi from "./gitbookapi";
 
 const gitbookApi = GitBookApi(process.env.GITBOOK_API_TOKEN);
 
@@ -96,7 +96,7 @@ const typeDefs = gql`
   }
 `;
 
-const resolvers = {
+const resolvers: IResolvers<any, any> = {
   Query: {
     me: async () => {
       return await gitbookApi.getUser();
@@ -128,7 +128,7 @@ const resolvers = {
     },
   },
   Owner: {
-    __resolveType(owner) {
+    __resolveType(owner: { kind: string }) {
       if (owner.kind === "user") {
         return "User";
       } else if (owner.kind === "org") {

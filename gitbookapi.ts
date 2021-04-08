@@ -1,9 +1,19 @@
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
+
 const GITBOOK_BASE_URL = "https://api-beta.gitbook.com/v1";
 
-async function GitBookApiRequest({ endpoint, method = "GET", token }) {
+type GitBookApiRequestArgs = {
+  endpoint: string;
+  method?: string;
+  token: string;
+};
+
+async function GitBookApiRequest({
+  endpoint,
+  method = "GET",
+  token,
+}: GitBookApiRequestArgs) {
   const url = `${GITBOOK_BASE_URL}${endpoint}`;
-  console.log(url);
   return fetch(url, {
     method,
     headers: {
@@ -12,7 +22,26 @@ async function GitBookApiRequest({ endpoint, method = "GET", token }) {
   });
 }
 
-module.exports = function GitBookApi(token) {
+type UidArgs = {
+  uid: string;
+};
+
+type OwnerIdArgs = {
+  ownerId: string;
+};
+
+type SpaceIdArgs = {
+  spaceId: string;
+};
+
+function isOwnerIdArgs(value: unknown): value is OwnerIdArgs {
+  return (
+    (value as OwnerIdArgs).ownerId !== undefined &&
+    typeof (value as OwnerIdArgs).ownerId === "string"
+  );
+}
+
+export default function GitBookApi(token: string) {
   return {
     getUser: async () => {
       const result = await GitBookApiRequest({
@@ -28,17 +57,17 @@ module.exports = function GitBookApi(token) {
       });
       return await result.json();
     },
-    getOwner: async ({ uid }) => {
+    getOwner: async ({ uid }: UidArgs) => {
       const result = await GitBookApiRequest({
         endpoint: `/owners/${uid}`,
         token,
       });
       return await result.json();
     },
-    getSpaces: async ({ ownerId }) => {
-      if (ownerId) {
+    getSpaces: async (arg?: OwnerIdArgs) => {
+      if (arg.ownerId) {
         const result = await GitBookApiRequest({
-          endpoint: `/owners/${ownerId}/spaces`,
+          endpoint: `/owners/${arg.ownerId}/spaces`,
           token,
         });
         return await result.json();
@@ -49,23 +78,21 @@ module.exports = function GitBookApi(token) {
       });
       return await result.json();
     },
-    getSpace: async ({ ownerId, uid }) => {
-      if (ownerId) {
+    getSpace: async (spaceArgs: UidArgs | OwnerIdArgs) => {
+      if (isOwnerIdArgs(spaceArgs)) {
         const result = await GitBookApiRequest({
-          endpoint: `/owners/${ownerId}/spaces`,
+          endpoint: `/owners/${spaceArgs.ownerId}/spaces`,
           token,
         });
         return await result.json();
       }
-      if (uid) {
-        const result = await GitBookApiRequest({
-          endpoint: `/spaces/${uid}`,
-          token,
-        });
-        return await result.json();
-      }
+      const result = await GitBookApiRequest({
+        endpoint: `/spaces/${spaceArgs.uid}`,
+        token,
+      });
+      return await result.json();
     },
-    getSpaceContentAnalytics: async ({ spaceId }) => {
+    getSpaceContentAnalytics: async ({ spaceId }: SpaceIdArgs) => {
       /* API Method not found? */
       const result = await GitBookApiRequest({
         endpoint: `/spaces/${spaceId}/analytics/content`,
@@ -73,7 +100,7 @@ module.exports = function GitBookApi(token) {
       });
       return await result.json();
     },
-    getSpaceSearchAnalytics: async ({ spaceId }) => {
+    getSpaceSearchAnalytics: async ({ spaceId }: SpaceIdArgs) => {
       /* Invalid Auth Token?? */
       const result = await GitBookApiRequest({
         endpoint: `/spaces/${spaceId}/analytics/search`,
@@ -81,7 +108,7 @@ module.exports = function GitBookApi(token) {
       });
       return await result.json();
     },
-    getContentRevision: async ({ spaceId }) => {
+    getContentRevision: async ({ spaceId }: SpaceIdArgs) => {
       console.log(spaceId);
       const result = await GitBookApiRequest({
         endpoint: `/spaces/${spaceId}/content`,
@@ -90,4 +117,4 @@ module.exports = function GitBookApi(token) {
       return await result.json();
     },
   };
-};
+}
