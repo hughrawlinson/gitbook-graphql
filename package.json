@@ -9,7 +9,7 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
-    "@types/node-fetch": "^2.5.12",
+    "@types/node-fetch": "^3.0.3",
     "apollo-server": "^3.3.0",
     "graphql": "^15.5.3",
     "node-fetch": "^3.0.0",
