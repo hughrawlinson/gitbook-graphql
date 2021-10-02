@@ -1,9 +1,8 @@
-import { ApolloServer, gql, IResolvers } from "apollo-server";
-import GitBookApi from "./gitbookapi";
+import { gql } from "apollo-server-express";
+import { IResolvers } from "@graphql-tools/utils";
+import GitBookApi from "./gitbookapi.js";
 
-const gitbookApi = GitBookApi(process.env.GITBOOK_API_TOKEN);
-
-const typeDefs = gql`
+export const typeDefs = gql`
   interface Owner {
     uid: String
     kind: String
@@ -96,34 +95,42 @@ const typeDefs = gql`
   }
 `;
 
-const resolvers: IResolvers<any, any> = {
+export const resolvers: IResolvers<any, any> = {
   Query: {
-    me: async () => {
+    me: async (_, _1, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
       return await gitbookApi.getUser();
     },
-    myOrgs: async () => {
-      const orgs = await gitbookApi.getOrgs();
-      return orgs.items;
+    myOrgs: async (_, _1, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const orgs: any = await gitbookApi.getOrgs();
+      return orgs.items!;
     },
-    mySpaces: async () => {
-      const spaces = await gitbookApi.getSpaces();
+    mySpaces: async (_, _1, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const spaces: any = await gitbookApi.getSpaces();
       return spaces.items;
     },
-    user: async (parent, args) => {
+    user: async (_, args, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
       return await gitbookApi.getOwner({ uid: args.uid });
     },
-    org: async (parent, args) => {
+    org: async (_, args, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
       return await gitbookApi.getOwner({ uid: args.uid });
     },
-    owner: async (parent, args) => {
+    owner: async (_, args, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
       return await gitbookApi.getOwner({ uid: args.uid });
     },
-    spaces: async (_, args) => {
-      const spaces = await gitbookApi.getSpaces({ ownerId: args.ownerId });
+    spaces: async (_, args, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const spaces: any = await gitbookApi.getSpaces({ ownerId: args.ownerId });
       return spaces.items;
     },
-    space: async (_, args) => {
-      const space = await gitbookApi.getSpace({ uid: args.uid });
+    space: async (_, args, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const space: any = await gitbookApi.getSpace({ uid: args.uid });
       return space;
     },
   },
@@ -138,35 +145,42 @@ const resolvers: IResolvers<any, any> = {
     },
   },
   User: {
-    spaces: async (parent, args) => {
-      const spaceResult = await gitbookApi.getSpace({
+    spaces: async (parent, args, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const spaceResult: any = await gitbookApi.getSpace({
         ownerId: parent.uid || args.uid,
       });
       return spaceResult.items;
     },
   },
   Org: {
-    spaces: async (parent, args) => {
-      const spaceResult = await gitbookApi.getSpace({
+    spaces: async (parent, args, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const spaceResult: any = await gitbookApi.getSpace({
         ownerId: parent.uid || args.uid,
       });
       return spaceResult.items;
     },
   },
   Space: {
-    contentAnalytics: async (parent) => {
-      const spaceContentAnalytics = await gitbookApi.getSpaceContentAnalytics({
-        spaceId: parent.uid,
-      });
+    contentAnalytics: async (parent, _, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const spaceContentAnalytics: any =
+        await gitbookApi.getSpaceContentAnalytics({
+          spaceId: parent.uid,
+        });
       return spaceContentAnalytics.pages;
     },
-    searchAnalytics: async (parent) => {
-      const spaceSearchAnalytics = await gitbookApi.getSpaceSearchAnalytics({
-        spaceId: parent.uid,
-      });
+    searchAnalytics: async (parent, _, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const spaceSearchAnalytics: any =
+        await gitbookApi.getSpaceSearchAnalytics({
+          spaceId: parent.uid,
+        });
       return spaceSearchAnalytics.pages;
     },
-    content: async (parent) => {
+    content: async (parent, _, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
       const content = await gitbookApi.getContentRevision({
         spaceId: parent.uid,
       });
@@ -175,9 +189,3 @@ const resolvers: IResolvers<any, any> = {
     },
   },
 };
-
-const server = new ApolloServer({ typeDefs, resolvers });
-
-server.listen().then(({ url }) => {
-  console.log(`Server ready at ${url}`);
-});

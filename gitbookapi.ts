@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const GITBOOK_BASE_URL = "https://api-beta.gitbook.com/v1";
+const GITBOOK_BASE_URL = process.env.GITBOOK_API_HOST;
 
 type GitBookApiRequestArgs = {
   endpoint: string;
