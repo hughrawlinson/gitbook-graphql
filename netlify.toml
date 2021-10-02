@@ -1,2 +1,10 @@
 [functions]
   directory = "functions"
+	external_node_modules = ["express"]
+
+[[redirects]]
+  from = "/graphql"
+  to = "/.netlify/functions/graphql"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
