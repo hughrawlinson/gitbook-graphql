@@ -366,10 +366,10 @@ apollo-server-caching@^3.2.0:
   dependencies:
     lru-cache "^6.0.0"
 
-apollo-server-core@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.4.0.tgz#a7a492522132472361cd5ff7c6fc32aef37385b5"
-  integrity sha512-CbQTgoeijCdfaTFq3DHBrnWtat1M/SlPxS365iy2fb2/p4zbYatOA/S0RON7PMGp2gcMnopvOtokJIOxbNN/YA==
+apollo-server-core@^3.4.0, apollo-server-core@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.4.1.tgz#284287a17502318796ea8308522abb27bc37a955"
+  integrity sha512-v1mX3ijrIPbg6iAySw+uXgTW03cxVAZkyKhvPVWAD5yzXTqmPlVnonHJyoCq/P8B0v6sIjufnIqclHuq5/D/Xw==
   dependencies:
     "@apollographql/apollo-tools" "^0.5.1"
     "@apollographql/graphql-playground-html" "1.6.29"
@@ -405,10 +405,10 @@ apollo-server-errors@^3.2.0:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-3.2.0.tgz#6c5051107b073c09bb55c2554878af0e97d59d08"
   integrity sha512-Y7YH3JVAaR1199ao4dae3j1UrF9D/6AJwHpsORTjI3BvrwjU1X7Nk1VvEHn9bZfZF6ONaqUM+uCLm5c8GPhffQ==
 
-apollo-server-express@^3.3.0, apollo-server-express@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-3.4.0.tgz#2dfa36531746fa36bfafeeda76b017d608a168a9"
-  integrity sha512-+J7Nu+I+JLCEnBQrQAzKmZfguHo9GQNb6XJZYuNlg9jdcomAvJpEJW5SKujXiGCT9CCIB6jvf8s102pJvBC9TQ==
+apollo-server-express@^3.3.0, apollo-server-express@^3.4.0, apollo-server-express@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-3.4.1.tgz#f900e9ef393a64e9c93ec7d60f185b8713ec7930"
+  integrity sha512-uX0Niq1ftX5D/PVnXY7sTkZeHcSwVnJ60HIUKsWx8J/CtMLrC6RxfUXFRvys/DGb+qVQlK3eh9dpbSbbGDExhQ==
   dependencies:
     "@types/accepts" "^1.3.5"
     "@types/body-parser" "1.19.1"
@@ -416,21 +416,21 @@ apollo-server-express@^3.3.0, apollo-server-express@^3.4.0:
     "@types/express" "4.17.13"
     "@types/express-serve-static-core" "4.17.24"
     accepts "^1.3.5"
-    apollo-server-core "^3.4.0"
+    apollo-server-core "^3.4.1"
     apollo-server-types "^3.3.0"
     body-parser "^1.19.0"
     cors "^2.8.5"
     parseurl "^1.3.3"
 
-apollo-server-lambda@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-3.4.0.tgz#c7e3475f58a1394b0871fe8847674224936f033a"
-  integrity sha512-0py01OU5DhvnD48B6wt2zRBYzihwk6AzwrdPPBXeS6sb6fOmh3Ow4PLtP8HZX7wHqwO6LeusuoyuDT6/iGsq3Q==
+apollo-server-lambda@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-3.4.1.tgz#4f4abb74440818b0ac7f7f908cafca35897db0d7"
+  integrity sha512-k7pmeCTJiW5ulHhwzQdRBgr5tApwNG0PYa+vj+KuWeQBxGy+4oRJq7+HuUojr9U6cM+cArpl3uTvstZCP11zyw==
   dependencies:
     "@types/aws-lambda" "^8.10.76"
     "@vendia/serverless-express" "^4.3.9"
-    apollo-server-core "^3.4.0"
-    apollo-server-express "^3.4.0"
+    apollo-server-core "^3.4.1"
+    apollo-server-express "^3.4.1"
     express "^4.17.1"
 
 apollo-server-plugin-base@^3.3.0:
