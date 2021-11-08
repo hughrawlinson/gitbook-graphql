@@ -981,10 +981,10 @@ ts-tiny-invariant@0.0.3:
   resolved "https://registry.yarnpkg.com/ts-tiny-invariant/-/ts-tiny-invariant-0.0.3.tgz#6f51c153c285a7839bb59b1e5a2721fcb25a5e39"
   integrity sha512-EiaBUsUta7PPzVKpvZurcSDgaSkymxwiUc2rhX6Wu30bws2maipT6ihbEY072dU9lz6/FoFWEc6psXdlo0xqtg==
 
-ts-tiny-invariant@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/ts-tiny-invariant/-/ts-tiny-invariant-1.0.3.tgz#35260ab80b926a278ab9b99f4bd42756c3db4fe1"
-  integrity sha512-41oICyjeModD3gIMRSV/Y1JMXOffN6/NH0MkhWtObi3D6Vcdlrn3VdBiknjLJww2MmW1kfOWmXH7QoWVMyvqbA==
+ts-tiny-invariant@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/ts-tiny-invariant/-/ts-tiny-invariant-1.0.5.tgz#cd3534aa90fcc3277abc2f8c14bd8bcb57c6b317"
+  integrity sha512-md/ohza8w2Uj3YE/oPjZBQeNlmNH0+Hbva0SOkW9RNAyHeYoY6bzK6XvriW3Fo/sV7rEu6Mv+O+OFUkJK0euWw==
 
 tslib@^2.0.3, tslib@~2.3.0:
   version "2.3.0"
