@@ -36,7 +36,7 @@ async function GitBookApiRequest({
   }
   const json: unknown = await response.json();
   if (isApiError(json)) {
-    throw new Error(json.error.message);
+    console.log(json);
   }
   return json;
 }
@@ -84,7 +84,7 @@ export default function GitBookApi(token: string) {
       return result;
     },
     getSpaces: async (arg?: OwnerIdArgs) => {
-      if (arg.ownerId) {
+      if (arg && arg.ownerId) {
         const result = await GitBookApiRequest({
           endpoint: `/owners/${arg.ownerId}/spaces`,
           token,
@@ -112,7 +112,6 @@ export default function GitBookApi(token: string) {
       return result;
     },
     getSpaceContentAnalytics: async ({ spaceId }: SpaceIdArgs) => {
-      /* API Method not found? */
       const result = await GitBookApiRequest({
         endpoint: `/spaces/${spaceId}/analytics/content`,
         token,
@@ -120,17 +119,8 @@ export default function GitBookApi(token: string) {
       return result;
     },
     getSpaceSearchAnalytics: async ({ spaceId }: SpaceIdArgs) => {
-      /* Invalid Auth Token?? */
       const result = await GitBookApiRequest({
         endpoint: `/spaces/${spaceId}/analytics/search`,
-        token,
-      });
-      return result;
-    },
-    getContentRevision: async ({ spaceId }: SpaceIdArgs) => {
-      console.log(spaceId);
-      const result = await GitBookApiRequest({
-        endpoint: `/spaces/${spaceId}/content`,
         token,
       });
       return result;

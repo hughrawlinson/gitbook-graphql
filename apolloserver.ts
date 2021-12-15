@@ -14,6 +14,14 @@ export const typeDefs = gql`
     displayName: String
     photoURL: String
     spaces: [Space]
+  }
+
+  type Me implements Owner {
+    id: String
+    kind: String
+    displayName: String
+    photoURL: String
+    spaces: [Space]
     orgs: [Org]
   }
 
@@ -30,14 +38,23 @@ export const typeDefs = gql`
     path: String
     visibility: String
     contentAnalytics: [SpacePageContentAnalyticsPage]
-    searchAnalytics: [SpacePageSearchAnalytics]
+    searchAnalytics: SpacePageSearchAnalytics
+  }
+
+  type SpacePageContentAnalyticsPageFeedback {
+    score: Int
+    total: Int
+    rating: String
+    bad: Int
+    ok: Int
+    good: Int
   }
 
   type SpacePageContentAnalyticsPage {
-    uid: String
-    uniqueVisitors: Int
+    page: String
+    title: String
     pageViews: Int
-    timeOnPage: Int
+    feedbacks: SpacePageContentAnalyticsPageFeedback
   }
 
   type SpacePageSearchAnalytics {
@@ -49,47 +66,17 @@ export const typeDefs = gql`
     query: String
     searches: Int
     hits: Int
+    pageHits: Int
+    sectionHits: Int
   }
 
   type Query {
-    me: User
-    myOrgs: [Org]
-    mySpaces: [Space]
+    me: Me
     user(uid: String!): User
     org(uid: String!): Org
     owner(uid: String!): Owner
     spaces(ownerId: String): [Space]
     space(uid: String!): Space
-  }
-
-  type ContentRevision {
-    uid: String
-    parents: [String]
-    variants: [Variant]
-    assets: [Asset]
-  }
-
-  type Variant {
-    uid: String
-    ref: String
-    title: String
-    page: Page
-  }
-
-  type Page {
-    uid: String
-    title: String
-    description: String
-    path: String
-    kind: String
-    pages: [Page]
-  }
-
-  type Asset {
-    uid: String
-    name: String
-    downloadURL: String
-    contentType: String
   }
 `;
 
@@ -98,16 +85,6 @@ export const resolvers: IResolvers<any, any> = {
     me: async (_, _1, context) => {
       const gitbookApi = GitBookApi(context.gitbookApiToken);
       return await gitbookApi.getUser();
-    },
-    myOrgs: async (_, _1, context) => {
-      const gitbookApi = GitBookApi(context.gitbookApiToken);
-      const orgs: any = await gitbookApi.getOrgs();
-      return orgs.items!;
-    },
-    mySpaces: async (_, _1, context) => {
-      const gitbookApi = GitBookApi(context.gitbookApiToken);
-      const spaces: any = await gitbookApi.getSpaces();
-      return spaces.items;
     },
     user: async (_, args, context) => {
       const gitbookApi = GitBookApi(context.gitbookApiToken);
@@ -140,6 +117,18 @@ export const resolvers: IResolvers<any, any> = {
         return "Org";
       }
       return null;
+    },
+  },
+  Me: {
+    orgs: async (_, _1, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const orgs: any = await gitbookApi.getOrgs();
+      return orgs.items!;
+    },
+    spaces: async (_, _1, context) => {
+      const gitbookApi = GitBookApi(context.gitbookApiToken);
+      const spaces: any = await gitbookApi.getSpaces();
+      return spaces.items;
     },
   },
   User: {
@@ -175,15 +164,7 @@ export const resolvers: IResolvers<any, any> = {
         await gitbookApi.getSpaceSearchAnalytics({
           spaceId: parent.uid,
         });
-      return spaceSearchAnalytics.pages;
+      return spaceSearchAnalytics;
     },
-    // content: async (parent, _, context) => {
-    //   const gitbookApi = GitBookApi(context.gitbookApiToken);
-    //   const content = await gitbookApi.getContentRevision({
-    //     spaceId: parent.uid,
-    //   });
-    //   console.log(content);
-    //   return content;
-    // },
   },
 };
