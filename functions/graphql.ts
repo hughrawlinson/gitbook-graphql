@@ -14,6 +14,17 @@ export const netlifyServer = new ApolloServer({
   }),
 });
 
-const handler: Handler = netlifyServer.createHandler();
+const apolloHandler: Handler = netlifyServer.createHandler();
+
+const handler: Handler = (event: any, context: any, ...args) => {
+  return apolloHandler(
+    {
+      ...event,
+      requestContext: context,
+    },
+    context,
+    ...args
+  );
+};
 
 export { handler };
