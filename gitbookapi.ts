@@ -8,18 +8,37 @@ type GitBookApiRequestArgs = {
   token: string;
 };
 
+interface ApiError {
+  error: {
+    code: number;
+    message: string;
+  };
+}
+
+function isApiError(v: unknown): v is ApiError {
+  return v.hasOwnProperty("error");
+}
+
 async function GitBookApiRequest({
   endpoint,
   method = "GET",
   token,
 }: GitBookApiRequestArgs) {
   const url = `${GITBOOK_BASE_URL}${endpoint}`;
-  return fetch(url, {
+  const response = await fetch(url, {
     method,
     headers: {
       authorization: `Bearer ${token}`,
     },
   });
+  if (!response.ok) {
+    new Error(`GitBook API request failed: ${url}`);
+  }
+  const json: unknown = await response.json();
+  if (isApiError(json)) {
+    throw new Error(json.error.message);
+  }
+  return json;
 }
 
 type UidArgs = {
@@ -48,21 +67,21 @@ export default function GitBookApi(token: string) {
         endpoint: "/user",
         token,
       });
-      return await result.json();
+      return result;
     },
     getOrgs: async () => {
       const result = await GitBookApiRequest({
         endpoint: "/orgs",
         token,
       });
-      return await result.json();
+      return result;
     },
     getOwner: async ({ uid }: UidArgs) => {
       const result = await GitBookApiRequest({
         endpoint: `/owners/${uid}`,
         token,
       });
-      return await result.json();
+      return result;
     },
     getSpaces: async (arg?: OwnerIdArgs) => {
       if (arg.ownerId) {
@@ -70,13 +89,13 @@ export default function GitBookApi(token: string) {
           endpoint: `/owners/${arg.ownerId}/spaces`,
           token,
         });
-        return await result.json();
+        return result;
       }
       const result = await GitBookApiRequest({
         endpoint: "/user/spaces",
         token,
       });
-      return await result.json();
+      return result;
     },
     getSpace: async (spaceArgs: UidArgs | OwnerIdArgs) => {
       if (isOwnerIdArgs(spaceArgs)) {
@@ -84,13 +103,13 @@ export default function GitBookApi(token: string) {
           endpoint: `/owners/${spaceArgs.ownerId}/spaces`,
           token,
         });
-        return await result.json();
+        return result;
       }
       const result = await GitBookApiRequest({
         endpoint: `/spaces/${spaceArgs.uid}`,
         token,
       });
-      return await result.json();
+      return result;
     },
     getSpaceContentAnalytics: async ({ spaceId }: SpaceIdArgs) => {
       /* API Method not found? */
@@ -98,7 +117,7 @@ export default function GitBookApi(token: string) {
         endpoint: `/spaces/${spaceId}/analytics/content`,
         token,
       });
-      return await result.json();
+      return result;
     },
     getSpaceSearchAnalytics: async ({ spaceId }: SpaceIdArgs) => {
       /* Invalid Auth Token?? */
@@ -106,7 +125,7 @@ export default function GitBookApi(token: string) {
         endpoint: `/spaces/${spaceId}/analytics/search`,
         token,
       });
-      return await result.json();
+      return result;
     },
     getContentRevision: async ({ spaceId }: SpaceIdArgs) => {
       console.log(spaceId);
@@ -114,7 +133,7 @@ export default function GitBookApi(token: string) {
         endpoint: `/spaces/${spaceId}/content`,
         token,
       });
-      return await result.json();
+      return result;
     },
   };
 }

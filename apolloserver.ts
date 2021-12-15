@@ -4,35 +4,33 @@ import GitBookApi from "./gitbookapi.js";
 
 export const typeDefs = gql`
   interface Owner {
-    uid: String
     kind: String
-    title: String
-    spaces: [Space]
+    id: String
   }
 
   type User implements Owner {
-    uid: String
+    id: String
     kind: String
-    title: String
+    displayName: String
+    photoURL: String
     spaces: [Space]
+    orgs: [Org]
   }
 
   type Org implements Owner {
-    uid: String
+    id: String
     kind: String
     title: String
     spaces: [Space]
   }
 
   type Space {
-    uid: String
-    name: String
-    baseName: String
-    private: Boolean
-    unlisted: Boolean
+    id: String
+    title: String
+    path: String
+    visibility: String
     contentAnalytics: [SpacePageContentAnalyticsPage]
     searchAnalytics: [SpacePageSearchAnalytics]
-    content: ContentRevision
   }
 
   type SpacePageContentAnalyticsPage {
@@ -179,13 +177,13 @@ export const resolvers: IResolvers<any, any> = {
         });
       return spaceSearchAnalytics.pages;
     },
-    content: async (parent, _, context) => {
-      const gitbookApi = GitBookApi(context.gitbookApiToken);
-      const content = await gitbookApi.getContentRevision({
-        spaceId: parent.uid,
-      });
-      console.log(content);
-      return content;
-    },
+    // content: async (parent, _, context) => {
+    //   const gitbookApi = GitBookApi(context.gitbookApiToken);
+    //   const content = await gitbookApi.getContentRevision({
+    //     spaceId: parent.uid,
+    //   });
+    //   console.log(content);
+    //   return content;
+    // },
   },
 };
