@@ -10,7 +10,7 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
-    "@graphql-tools/utils": "^8.5.5",
+    "@graphql-tools/utils": "^8.6.0",
     "@netlify/functions": "^0.10.0",
     "@types/node": "^17.0.5",
     "@types/node-fetch": "^3.0.3",
