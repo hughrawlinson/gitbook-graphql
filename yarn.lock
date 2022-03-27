@@ -107,10 +107,10 @@
     camel-case "4.1.2"
     tslib "~2.2.0"
 
-"@graphql-tools/utils@^8.6.3":
-  version "8.6.3"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.6.3.tgz#ce9fc9adce4d45b229e314a2261290a88a252aed"
-  integrity sha512-CNyP7Uu7dlVMQ32IpHWOxz4yic9BYXXVkDhG0UdTKSszvzHdgMilemE9MpUrGzzBPsTe3aYTtNGyPUkyh9yTXA==
+"@graphql-tools/utils@^8.6.5":
+  version "8.6.5"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.6.5.tgz#ac04571b03f854c7a938b2ab700516a6c6d32335"
+  integrity sha512-mjOtaWiS2WIqRz/cq5gaeM3sVrllcu2xbtHROw1su1v3xWa3D3dKgn8Lrl7+tvWs5WUVySsBss/VZ3WdoPkCrA==
   dependencies:
     tslib "~2.3.0"
 
@@ -349,7 +349,7 @@ apollo-server-caching@^3.3.0:
   dependencies:
     lru-cache "^6.0.0"
 
-apollo-server-core@^3.6.4, apollo-server-core@^3.6.6:
+apollo-server-core@^3.6.6:
   version "3.6.6"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.6.6.tgz#3913af81442ecfd5998b41ea1f08253af6d7eb3d"
   integrity sha512-JKxUY4JZVhCKJeEACZRB/uCXFrOZN6p0fqe1NmFc4GDeYnejDirzzuWLMY1rAgI1N5tXhZniyHDR6nU0SpPbRA==
@@ -387,7 +387,7 @@ apollo-server-errors@^3.3.1:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-3.3.1.tgz#ba5c00cdaa33d4cbd09779f8cb6f47475d1cd655"
   integrity sha512-xnZJ5QWs6FixHICXHxUfm+ZWqqxrNuPlQ+kj5m6RtEgIpekOPssH/SD9gf2B4HuWV0QozorrygwZnux8POvyPA==
 
-apollo-server-express@^3.6.1, apollo-server-express@^3.6.4, apollo-server-express@^3.6.6:
+apollo-server-express@^3.6.1, apollo-server-express@^3.6.6:
   version "3.6.6"
   resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-3.6.6.tgz#c644a7d24fcc201d2066651d639219671386705e"
   integrity sha512-27D+rRd/yfIFx333yYc6WgAhI6hCPbM3r53Ha0SFCGZ7BGvccVvKlhlbLYdkLEO0DQEdVKI7YuZq4yoM0qdZ/g==
