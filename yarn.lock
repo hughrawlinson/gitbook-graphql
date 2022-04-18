@@ -107,10 +107,10 @@
     camel-case "4.1.2"
     tslib "~2.2.0"
 
-"@graphql-tools/utils@^8.6.7":
-  version "8.6.7"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.6.7.tgz#0e21101233743eb67a5782a5a40919d85ddb1021"
-  integrity sha512-Qi3EN95Rt3hb8CyDKpPKFWOPrnc00P18cpVTXEgtKxetSP39beJBeEEtLB0R53eP/6IolsyTZOTgkET1EaERaw==
+"@graphql-tools/utils@^8.6.8":
+  version "8.6.8"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.6.8.tgz#a0824ed5810f66c504df4e97c5900786ac0c260e"
+  integrity sha512-EdUUeKi/wp/UvuknyINpQ/uXDqTM3qxPPPDIq5RpfW0zQOeCvbZcx8xHoMox0TYKvKtg3zoB7aprUtoW+iZLxw==
   dependencies:
     tslib "~2.3.0"
 
