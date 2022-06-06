@@ -454,15 +454,15 @@ apollo-server-express@^3.8.1, apollo-server-express@^3.8.2:
     cors "^2.8.5"
     parseurl "^1.3.3"
 
-apollo-server-lambda@^3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-3.8.1.tgz#1fc39af617a91b6013e4dac0a3451c83eda83b18"
-  integrity sha512-Ip5JCH+fmucqa0dDawSB9NPWg8lGaT4zseK+wrw5H5gJmC8VLc3q1L98Yy0pmkwVUEBx4HiMH2QWUSsF3l7SQw==
+apollo-server-lambda@^3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-3.8.2.tgz#97cf756d364f1a976ac137a35a88e8db127f0c54"
+  integrity sha512-8KWp/YYM9yctWwAv0oMERKHM91MQmpJCOnS1TykWC4p1JwrSgt1vln9TJK5FRCD4rFGgSlPvhc3TItXjdDVVAw==
   dependencies:
     "@types/aws-lambda" "^8.10.76"
     "@vendia/serverless-express" "^4.3.9"
-    apollo-server-core "^3.8.1"
-    apollo-server-express "^3.8.1"
+    apollo-server-core "^3.8.2"
+    apollo-server-express "^3.8.2"
     express "^4.17.1"
 
 apollo-server-plugin-base@^3.6.0:
