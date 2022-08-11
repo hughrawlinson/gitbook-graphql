@@ -14,7 +14,7 @@
     "@netlify/functions": "^1.0.0",
     "@types/node": "^18.7.1",
     "@types/node-fetch": "^3.0.3",
-    "apollo-server": "^3.10.0",
+    "apollo-server": "^3.10.1",
     "apollo-server-express": "^3.10.0",
     "apollo-server-lambda": "^3.10.1",
     "dotenv": "^16.0.1",
