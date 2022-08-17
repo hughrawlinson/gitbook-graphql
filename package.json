@@ -11,7 +11,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@graphql-tools/utils": "^8.10.0",
-    "@netlify/functions": "^1.1.0",
+    "@netlify/functions": "^1.2.0",
     "@types/node": "^18.7.5",
     "@types/node-fetch": "^3.0.3",
     "apollo-server": "^3.10.1",
