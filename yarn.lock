@@ -360,10 +360,10 @@
   dependencies:
     node-fetch "*"
 
-"@types/node@*", "@types/node@^18.7.6":
-  version "18.7.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.6.tgz#31743bc5772b6ac223845e18c3fc26f042713c83"
-  integrity sha512-EdxgKRXgYsNITy5mjjXjVE/CS8YENSdhiagGrLqjG0pvA2owgJ6i4l7wy/PFZGC0B1/H20lWKN7ONVDNYDZm7A==
+"@types/node@*", "@types/node@^18.7.13":
+  version "18.7.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.13.tgz#23e6c5168333480d454243378b69e861ab5c011a"
+  integrity sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==
 
 "@types/node@^10.1.0":
   version "10.17.56"
@@ -433,7 +433,7 @@ apollo-reporting-protobuf@^3.3.2:
   dependencies:
     "@apollo/protobufjs" "1.2.4"
 
-apollo-server-core@^3.10.1, apollo-server-core@^3.10.2:
+apollo-server-core@^3.10.2:
   version "3.10.2"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.10.2.tgz#04c5c3fc96b6c7d7f84fdc7356cf9830de4db561"
   integrity sha512-/1o9KPoAMgcjJJ9Y0IH1665wf9d02L/m/mcfBOHiFmRgeGkNgrhTy59BxQTBK241USAWMhwMpp171cv/hM5Dng==
@@ -473,7 +473,7 @@ apollo-server-errors@^3.3.1:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-3.3.1.tgz#ba5c00cdaa33d4cbd09779f8cb6f47475d1cd655"
   integrity sha512-xnZJ5QWs6FixHICXHxUfm+ZWqqxrNuPlQ+kj5m6RtEgIpekOPssH/SD9gf2B4HuWV0QozorrygwZnux8POvyPA==
 
-apollo-server-express@^3.10.0, apollo-server-express@^3.10.1, apollo-server-express@^3.10.2:
+apollo-server-express@^3.10.0, apollo-server-express@^3.10.2:
   version "3.10.2"
   resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-3.10.2.tgz#df7cb81eab10d84db55297a2820cf3bd8814eb80"
   integrity sha512-TUpnh23qAP3NqMp3/2TxcCpOxhvT64H6teOM5W+t5ncdHZ85aEMDrbfIhNwqkdsya+UyMn9IoBmn25h5TW93ZQ==
