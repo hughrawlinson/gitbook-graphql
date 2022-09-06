@@ -12,7 +12,7 @@
   "dependencies": {
     "@graphql-tools/utils": "^8.11.0",
     "@netlify/functions": "^1.2.0",
-    "@types/node": "^18.7.14",
+    "@types/node": "^18.7.15",
     "@types/node-fetch": "^3.0.3",
     "apollo-server": "^3.10.2",
     "apollo-server-express": "^3.10.0",
