@@ -433,7 +433,7 @@ apollo-reporting-protobuf@^3.3.3:
   dependencies:
     "@apollo/protobufjs" "1.2.6"
 
-apollo-server-core@^3.10.2, apollo-server-core@^3.10.3:
+apollo-server-core@^3.10.3:
   version "3.10.3"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.10.3.tgz#64db45703785e9e79e7c5dadb6df2f7ee6fcbecc"
   integrity sha512-PiTirlcaszgnJGzSsGui9XWh0KAh0BUW+GvRKN6O0H0qOSXSLmoqqyL83J+u+HaUZGyyiE0+VOkyCcuF+kKbEw==
@@ -473,7 +473,7 @@ apollo-server-errors@^3.3.1:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-3.3.1.tgz#ba5c00cdaa33d4cbd09779f8cb6f47475d1cd655"
   integrity sha512-xnZJ5QWs6FixHICXHxUfm+ZWqqxrNuPlQ+kj5m6RtEgIpekOPssH/SD9gf2B4HuWV0QozorrygwZnux8POvyPA==
 
-apollo-server-express@^3.10.0, apollo-server-express@^3.10.2, apollo-server-express@^3.10.3:
+apollo-server-express@^3.10.0, apollo-server-express@^3.10.3:
   version "3.10.3"
   resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-3.10.3.tgz#946b857c7d8516235a757e853966dd1189f247e1"
   integrity sha512-Z8m0r10mX8KlGS3noYeRPcWxWR2hX6NHJicjuwZ62PeTZlrDJF5cwGmXqbUg/sCTPx7Ny//ZEASBTwFFp8DOeQ==
@@ -490,15 +490,15 @@ apollo-server-express@^3.10.0, apollo-server-express@^3.10.2, apollo-server-expr
     cors "^2.8.5"
     parseurl "^1.3.3"
 
-apollo-server-lambda@^3.10.2:
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-3.10.2.tgz#d6f411b571e478cc6edfdfea5c2305d24cb347ce"
-  integrity sha512-qoc27EA8lOyp605edCiywn9l2nDsBUwuf+JXNfwOqm+hF2BVmce92c+SZVP3O/2MPfr4fESb5X5AOVO+LtOTJQ==
+apollo-server-lambda@^3.10.3:
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-3.10.3.tgz#e5093cd0ba8b8c5e605c730ee4103aa2b5859053"
+  integrity sha512-XOtGRFZvFOcicVocHvIqa4tU1Dr8lkVHArRcP7J2OTVFVmFOtvBxOVr60BLwcsWT5mOHrP78tejvDkk4SFYtlQ==
   dependencies:
     "@types/aws-lambda" "^8.10.76"
     "@vendia/serverless-express" "^4.3.9"
-    apollo-server-core "^3.10.2"
-    apollo-server-express "^3.10.2"
+    apollo-server-core "^3.10.3"
+    apollo-server-express "^3.10.3"
     express "^4.17.1"
 
 apollo-server-plugin-base@^3.6.3:
