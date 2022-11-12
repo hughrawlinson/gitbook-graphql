@@ -433,7 +433,7 @@ apollo-reporting-protobuf@^3.3.3:
   dependencies:
     "@apollo/protobufjs" "1.2.6"
 
-apollo-server-core@^3.10.3, apollo-server-core@^3.11.1:
+apollo-server-core@^3.11.1:
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.11.1.tgz#89d83aeaa71a59f760ebfa35bb0cbd31e15474ca"
   integrity sha512-t/eCKrRFK1lYZlc5pHD99iG7Np7CEm3SmbDiONA7fckR3EaB/pdsEdIkIwQ5QBBpT5JLp/nwvrZRVwhaWmaRvw==
@@ -474,7 +474,7 @@ apollo-server-errors@^3.3.1:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-3.3.1.tgz#ba5c00cdaa33d4cbd09779f8cb6f47475d1cd655"
   integrity sha512-xnZJ5QWs6FixHICXHxUfm+ZWqqxrNuPlQ+kj5m6RtEgIpekOPssH/SD9gf2B4HuWV0QozorrygwZnux8POvyPA==
 
-apollo-server-express@^3.10.0, apollo-server-express@^3.10.3, apollo-server-express@^3.11.1:
+apollo-server-express@^3.10.0, apollo-server-express@^3.11.1:
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-3.11.1.tgz#f46d2f2f8db3d99ede6c0c144fea02f24b73cb78"
   integrity sha512-x9ngcpXbBlt4naCXTwNtBFb/mOd9OU0wtFXvJkObHF26NsRazu3DxDfEuekA6V1NFOocD+A9jmVMQeQWug5MgA==
@@ -947,10 +947,10 @@ node-domexception@^1.0.0:
   resolved "https://registry.yarnpkg.com/node-domexception/-/node-domexception-1.0.0.tgz#6888db46a1f71c0b76b3f7555016b63fe64766e5"
   integrity sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==
 
-node-fetch@*, node-fetch@^3.2.10:
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-3.2.10.tgz#e8347f94b54ae18b57c9c049ef641cef398a85c8"
-  integrity sha512-MhuzNwdURnZ1Cp4XTazr69K0BTizsBroX7Zx3UgDSVcZYKF/6p0CBe4EUb/hLqmzVhl0UpYfgRljQ4yxE+iCxA==
+node-fetch@*, node-fetch@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-3.3.0.tgz#37e71db4ecc257057af828d523a7243d651d91e4"
+  integrity sha512-BKwRP/O0UvoMKp7GNdwPlObhYGB5DQqwhEDQlNKuoqwVYSxkSZCSbHjnFFmUEtwSKRPU4kNK8PbDYYitwaE3QA==
   dependencies:
     data-uri-to-buffer "^4.0.0"
     fetch-blob "^3.1.4"
