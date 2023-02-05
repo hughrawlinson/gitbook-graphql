@@ -173,12 +173,18 @@
     camel-case "4.1.2"
     tslib "~2.2.0"
 
-"@graphql-tools/utils@^9.1.1":
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.1.1.tgz#b47ea8f0d18c038c5c1c429e72caa5c25039fbab"
-  integrity sha512-DXKLIEDbihK24fktR2hwp/BNIVwULIHaSTNTNhXS+19vgT50eX9wndx1bPxGwHnVBOONcwjXy0roQac49vdt/w==
+"@graphql-tools/utils@^9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.2.0.tgz#d74d0376231c0e8bf897a715fafaf53d0f6bf06c"
+  integrity sha512-s3lEG1iYkyYEnKCWrIFECX3XH2wmZvbg6Ir3udCvIDynq+ydaO7JQXobclpPtwSJtjlS353haF//6V7mnBQ4bg==
   dependencies:
+    "@graphql-typed-document-node/core" "^3.1.1"
     tslib "^2.4.0"
+
+"@graphql-typed-document-node/core@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.1.tgz#076d78ce99822258cf813ecc1e7fa460fa74d052"
+  integrity sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==
 
 "@josephg/resolvable@^1.0.0":
   version "1.0.0"
